@@ -9,3 +9,4 @@ use Core\Routing\Route;
  */
 
 Route::get('/', WelcomeController::class);
+Route::get('/migrate', [WelcomeController::class, 'migrate']);
