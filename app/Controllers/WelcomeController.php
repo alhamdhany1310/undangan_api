@@ -13,4 +13,13 @@ class WelcomeController extends Controller
             'data' => 'PHP Framework'
         ]);
     }
+
+    public function migrate(Request $request): string
+    {
+        if (!hash_equals(hash('sha3-512', env('APP_KEY')), $request->get('hash', ''))) {
+            return '';
+        }
+
+        return sprintf('<pre>%s</pre>', \Core\Support\Console::call('migrasi --gen'));
+    }
 }
