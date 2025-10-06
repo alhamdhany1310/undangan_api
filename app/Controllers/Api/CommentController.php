@@ -8,7 +8,6 @@ use App\Repositories\LikeContract;
 use App\Request\InsertCommentRequest;
 use App\Response\JsonResponse;
 use Core\Auth\Auth;
-use Core\Database\DB;
 use Core\Routing\Controller;
 use Core\Http\Request;
 use Core\Http\Respond;
