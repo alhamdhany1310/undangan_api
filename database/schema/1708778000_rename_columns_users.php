@@ -15,7 +15,9 @@ return new class implements Migration
     {
         Schema::table('users', function (Table $table) {
             if ($table->checkColumn('nama')) {
-                $table->renameColumn('nama', 'name');
+                $table->changeColumn(function ($table) {
+                    $table ->string('name', 50)->nullable();
+                });
             }
         });
     }
@@ -29,7 +31,9 @@ return new class implements Migration
     {
         Schema::table('users', function (Table $table) {
             if ($table->checkColumn('name')) {
-                $table->renameColumn('name', 'nama');
+                $table->changeColumn(function ($table) {
+                    $table ->string('nama', 50)->nullable();
+                });
             }
         });
     }

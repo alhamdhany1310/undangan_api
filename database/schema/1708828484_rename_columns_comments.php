@@ -15,19 +15,25 @@ return new class implements Migration
     {
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('nama')) {
-                $table->renameColumn('nama', 'name');
+                $table->changeColumn(function ($table) {
+                    $table ->string('name', 255)->nullable();
+                });
             }
         });
 
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('hadir')) {
-                $table->renameColumn('hadir', 'presence');
+                $table->changeColumn(function ($table) {
+                    $table ->boolean('presence')->default(false);
+                });
             }
         });
 
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('komentar')) {
-                $table->renameColumn('komentar', 'comment');
+                $table->changeColumn(function ($table) {
+                    $table ->text('comment')->nullable();
+                });
             }
         });
     }
@@ -41,19 +47,25 @@ return new class implements Migration
     {
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('name')) {
-                $table->renameColumn('name', 'nama');
+                $table->changeColumn(function ($table) {
+                    $table ->string('nama', 255)->nullable();
+                });
             }
         });
 
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('presence')) {
-                $table->renameColumn('presence', 'hadir');
+                $table->changeColumn(function ($table) {
+                    $table ->string('hadir', 10)->nullable();
+                });
             }
         });
 
         Schema::table('comments', function (Table $table) {
             if ($table->checkColumn('comment')) {
-                $table->renameColumn('comment', 'komentar');
+                $table->changeColumn(function ($table) {
+                    $table ->text('komentar')->nullable();
+                });
             }
         });
     }
