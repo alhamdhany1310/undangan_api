@@ -13,12 +13,12 @@ return new class implements Generator
      */
     public function run()
     {
-        $user = User::find('user@user.com', 'email');
+        $user = User::find('dani.rima@user.com', 'email');
 
         if (!$user->exist()) {
             $user = User::create([
-                'name' => 'User',
-                'email' => 'user@user.com',
+                'name' => 'Maspuk - Azarima',
+                'email' => 'dani.rima@user.com',
                 'password' => Hash::make('12345678')
             ]);
         }
